@@ -24,8 +24,8 @@
     "name": "s3storage",
     "connector": "loopback-component-storage",
     "provider": "amazon",
-    "keyId": "AKIAJA2VVDRTFSGSPVBQ",
-    "key": "TkNxI9q3kKnpKaW+kCQ8P9dva9ZGESDWgWqrNBIL"
+    "keyId": "#",
+    "key": "#"
   },
   "clientfiles": {
     "name": "clientfiles",
@@ -47,8 +47,8 @@
           "rejectUnauthorized": false
         },
         "auth": {
-          "user": "app@mohot.fit",
-          "pass": "app20179527"
+          "user": "#",
+          "pass": "#"
         }
       }
     ]
