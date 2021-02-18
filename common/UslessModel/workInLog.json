@@ -1,0 +1,93 @@
+{
+    "name": "workInLog",
+    "plural": "workInLogs",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "workNo": {
+        "type": "string",
+        "description": "Work Number",
+        "required": true
+      },
+      "artistNo": {
+        "type": "string",
+        "description": "Artist Number",
+        "required": true
+      },    
+      "createYear": {
+        "type": "string",
+        "description": "Work Create 2020-10-20"
+      },
+      "material": {
+        "type": "string",
+        "description": "油畫水彩版畫膠彩粉彩書法水墨雕塑混合卡片複製品畫冊"
+      },     
+      "size": {
+        "type": "string",
+        "description": "尺寸"
+      },   
+      "title": {
+        "type": "string",
+        "description": "題目"
+      },      
+      "styles": {
+        "type": "string",
+        "description": "風景山水肖像人體靜物現代畫"
+      },            
+      "state": {
+        "type": "string",
+        "description": "In || Refund || Return"
+      },      
+      "inPrice": {
+        "type": "number",
+        "description": "Work In Price"
+      },
+      "inDateUTC": {
+        "type": "number",
+        "description": "Work In Date UTC"
+      },
+      "images": {
+        "type": ["string"],
+        "description": "Image URL"
+      },   
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                        
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

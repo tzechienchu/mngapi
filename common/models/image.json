@@ -1,0 +1,73 @@
+{
+    "name": "image",
+    "plural": "images",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "title",
+        "required": true
+      },   
+      "fileName": {
+        "type": "string",
+        "description": "title",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "description": "dscription"
+      },
+      "source": {
+        "type": "string",
+        "description": "source"
+      },
+      "note": {
+        "type": "string",
+        "description": "note"
+      },
+      "usage": {
+        "type": "string",
+        "description": "artist,collector,supplier,work"
+      },      
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                                 
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

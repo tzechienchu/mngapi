@@ -1,0 +1,118 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "user": {
+    "dataSource": "db",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": false
+    }
+  },  
+  "work": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "workLog": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "artist": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "artistPriceLog": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "exhibition": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "collector": {
+    "dataSource": "db",
+    "public": true
+  },
+  "supplier": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "order": {
+    "dataSource": "db",
+    "public": true
+  },   
+  "expense": {
+    "dataSource": "db",
+    "public": true
+  }, 
+  "receivable": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "payable": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "glossary": {
+    "dataSource": "db",
+    "public": true
+  },
+  "systemKV": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "image": {
+    "dataSource": "db",
+    "public": true
+  },
+  "album": {
+    "dataSource": "db",
+    "public": true
+  },
+  "opLog": {
+    "dataSource": "db",
+    "public": true
+  },  
+  "container": {
+    "dataSource": "clientfiles",
+    "public": true
+  },
+  "cache": {
+    "dataSource": "cache",
+    "public": true
+  }    
+}

@@ -1,0 +1,81 @@
+{
+    "name": "receivable",
+    "plural": "receivables",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "type": {
+        "type": "string",
+        "description": "owner | artist | supplier",
+        "required": true
+      },        
+      "orderNo": {
+        "type": "string",
+        "description": "From Customer"
+      },   
+      "exibitionNo": {
+        "type": "string",
+        "description": "From Artist Share"
+      },          
+      "expenseId": {
+        "type": "string",
+        "description": "From Expense of Exhibition"
+      },   
+      "total": {
+        "type": "number",
+        "description": "Work Price",
+        "required": true
+      },   
+      "paymentType": {
+        "type": "string",
+        "description": "BankAC | Cache | Check"
+      },    
+      "paymentDate": {
+        "type": "string",
+        "description": "2021-10-11"
+      },           
+      "note": {
+        "type": "string",
+        "description": "Extra Note"
+      },  
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                         
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

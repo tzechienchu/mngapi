@@ -1,0 +1,101 @@
+{
+    "name": "workOutLog",
+    "plural": "workOutLogs",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "workNo": {
+        "type": "string",
+        "description": "Work Number",
+        "required": true
+      },
+      "artistNo": {
+        "type": "string",
+        "description": "Artist Number",
+        "required": true
+      }, 
+      "inDateUTC": {
+        "type": "number",
+        "description": "Work In Date UTC"
+      },
+      "workData":{
+        "type": "object",
+        "description": "Work Data"        
+      },           
+      "state": {
+        "type": "string",
+        "description": "Sale || Lend || Return"
+      },         
+      "collectorNo": {
+        "type": "string",
+        "description": "Work sold to collector"
+      },   
+      "collectorName": {
+        "type": "string",
+        "description": "Work sold to collector"
+      },  
+      "orderNo": {
+        "type": "string",
+        "description": "Work Sale Order Number"
+      },                    
+      "price": {
+        "type": "number",
+        "description": "Work Sale Price"
+      },
+      "deposite": {
+        "type": "number",
+        "description": "Work Sale Deposite"
+      },     
+      "tax": {
+        "type": "number",
+        "description": "1 Need 2 No need"
+      },  
+      "framePrice": {
+        "type": "number",
+        "description": "Frame Price"
+      },           
+      "saleDateUTC": {
+        "type": "number",
+        "description": "Work In Date UTC"
+      },   
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                       
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

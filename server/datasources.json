@@ -1,0 +1,56 @@
+{
+  "db-Memory": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "nan",
+    "password": "nan12345",
+    "name": "db",
+    "connector": "mongodb",
+    "user": "nan",
+    "note": "Rpi Mongo"
+  },  
+  "cache": {
+    "host": "127.0.0.1",
+    "port": 6379,
+    "name": "cache",
+    "connector": "kv-redis"
+  },
+  "s3storage": {
+    "name": "s3storage",
+    "connector": "loopback-component-storage",
+    "provider": "amazon",
+    "keyId": "AKIAJA2VVDRTFSGSPVBQ",
+    "key": "TkNxI9q3kKnpKaW+kCQ8P9dva9ZGESDWgWqrNBIL"
+  },
+  "clientfiles": {
+    "name": "clientfiles",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./client",
+    "nameConflict": "makeUnique"
+  },
+  "emailApp1": {
+    "name": "emailApp1",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "app@mohot.fit",
+          "pass": "app20179527"
+        }
+      }
+    ]
+  }
+}

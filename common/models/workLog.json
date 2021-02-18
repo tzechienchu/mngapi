@@ -1,0 +1,109 @@
+{
+    "name": "workLog",
+    "plural": "workLogs",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "workNo": {
+        "type": "string",
+        "description": "Work Number"
+      },          
+      "artNo": {
+        "type": "string",
+        "description": "Import ArtNo"
+      }, 
+      "title": {
+        "type": "string",
+        "description": "題目"
+      },
+      "size": {
+        "type": "string",
+        "description": "尺寸"
+      }, 
+      "material": {
+        "type": "string",
+        "description": "油畫水彩版畫膠彩粉彩書法水墨雕塑混合卡片複製品畫冊"
+      },                      
+      "artistNo": {
+        "type": "string",
+        "description": "Artist Number",
+        "required": true
+      }, 
+      "artistName": {
+        "type": "string",
+        "description": "Artist Name",
+        "required": true
+      },                              
+      "state": {
+        "type": "string",
+        "description": "Web | Stock | Lend | Sold"
+      },   
+      "ownerType": {
+        "type": "string",
+        "description": "Artist | Nan | Collector"
+      },      
+      "ownerName": {
+        "type": "string",
+        "description": "Owner Name"
+      }, 
+      "location": {
+        "type": "string",
+        "description": "artist | nan | owner | lender"
+      },             
+      "price": {
+        "type": "number",
+        "description": "Price 1"
+      },
+      "inDate": {
+        "type": "string",
+        "description": "Work In Date"
+      },
+      "outDate": {
+        "type": "string",
+        "description": "Work Out Date"
+      },      
+      "images": {
+        "type": ["string"],
+        "description": "Image URL"
+      },   
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                        
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

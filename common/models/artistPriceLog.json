@@ -1,0 +1,76 @@
+{
+    "name": "artistPriceLog",
+    "plural": "artistPriceLogs",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "artistNo": {
+        "type": "string",
+        "description": "Artist Number",
+        "required": true
+      }, 
+      "year": {
+        "type": "string",
+        "description": "年度"
+      },       
+      "material": {
+        "type": "string",
+        "description": "油畫水彩版畫膠彩粉彩書法水墨雕塑混合卡片複製品畫冊"
+      },
+      "unit": {
+        "type": "string",
+        "description": "號才"
+      },    
+      "price": {
+        "type": "number",
+        "description": "Sale Price Average"
+      },   
+      "listPrice": {
+        "type": "number",
+        "description": "牌價"
+      }, 
+      "bidPrice": {
+        "type": "number",
+        "description": "拍賣價"
+      },                                     
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                        
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

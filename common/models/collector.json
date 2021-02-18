@@ -1,0 +1,94 @@
+{
+    "name": "collector",
+    "plural": "collectors",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "collectorNo": {
+        "type": "string",
+        "description": "Collector Number"
+      },    
+      "name": {
+        "type": "string",
+        "description": "Artist Name",
+        "required": true
+      },      
+      "gender": {
+        "type": "string",
+        "description": "Male | Femal | Other"
+      },   
+      "phone1": {
+        "type": "string",
+        "description": "Telephone No 1"
+      },   
+      "phone2": {
+        "type": "string",
+        "description": "Telephone No 2"
+      },    
+      "address1": {
+        "type": "string",
+        "description": "Address 1"
+      },  
+      "address2": {
+        "type": "string",
+        "description": "Address 2"
+      },   
+      "interestKeys": {
+        "type": "string",
+        "description": "Interest Keywords"
+      },   
+      "state": {
+        "type": "number",
+        "description": "0:Delete 1:Ready",
+        "required": true
+      },          
+      "note": {
+        "type": "string",
+        "description": "Extra Note"
+      },  
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                         
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "indexes":{
+      "name_index": {
+        "keys": {"name": 1 }
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

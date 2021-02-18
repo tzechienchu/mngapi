@@ -1,0 +1,56 @@
+{
+    "name": "systemKV",
+    "plural": "systemKVs",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "key": {
+        "type": "string",
+        "description": "Key",
+        "required": true
+      },   
+      "value": {
+        "type": "string",
+        "description": "ArtistName,Style,Material,Color,...."
+      },  
+      "type": {
+        "type": "string",
+        "description": "int,float,string,object"
+      },                                                     
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

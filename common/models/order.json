@@ -1,0 +1,92 @@
+{
+    "name": "order",
+    "plural": "orders",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "orderNo": {
+        "type": "string",
+        "description": "Order Number",
+        "required": true
+      },
+      "collectorId": {
+        "type": "string",
+        "description": "Collector Id",
+        "required": true
+      },          
+      "collectorData": {
+        "type": "object",
+        "description": "Collector Data",
+        "required": true
+      },     
+      "purchaseWorks": {
+        "type": ["string"],
+        "description": "workNo:price:split:frame",
+        "required": true
+      },
+      "receivables": {
+        "type": ["string"],
+        "description": "workNo:receivableId"
+      }, 
+      "payables": {
+        "type": ["string"],
+        "description": "workNo:payableId"
+      },           
+      "total": {
+        "type": "number",
+        "description": "Total Work Price",
+        "required": true
+      },  
+      "deposit": {
+        "type": "number",
+        "description": "Deposite"
+      },     
+      "payments": {
+        "type": ["string"],
+        "description": "Payments"
+      },                     
+      "note": {
+        "type": "string",
+        "description": "Extra Note"
+      },  
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                         
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

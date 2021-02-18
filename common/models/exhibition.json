@@ -1,0 +1,94 @@
+{
+    "name": "exhibition",
+    "plural": "exhibitions",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "exhibitionNo": {
+        "type": "string",
+        "description": "exhibitionNo Number",
+        "required": true
+      },   
+      "title": {
+        "type": "string",
+        "description": "Exibition title",
+        "required": true
+      },      
+      "preface": {
+        "type": "string",
+        "description": "序"
+      },      
+      "document": {
+        "type": "string",
+        "description": "紀錄"
+      },   
+      "location": {
+        "type": "string",
+        "description": "Location"
+      },   
+      "fromDate": {
+        "type": "string",
+        "description": "2020-10-20"
+      },     
+      "toDate": {
+        "type": "string",
+        "description": "2020-10-20"
+      }, 
+      "images": {
+        "type": ["string"],
+        "description": "Image URL"
+      },      
+      "artistsNo": {
+        "type": "string",
+        "description": "Artist No"
+      },    
+      "worksNo": {
+        "type": "string",
+        "description": "Works No"
+      },
+      "state": {
+        "type": "number",
+        "description": "0:Delete 1:Ready",
+        "required": true
+      },                          
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                   
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

@@ -1,0 +1,139 @@
+{
+    "name": "artist",
+    "plural": "artists",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "artistNo": {
+        "type": "string",
+        "description": "Artist Number",
+        "required": true
+      },      
+      "name": {
+        "type": "string",
+        "description": "Artist Name",
+        "required": true
+      },   
+      "lastname": {
+        "type": "string",
+        "description": "Artist LastName"
+      },         
+      "gender": {
+        "type": "string",
+        "description": "Male | Femal | Other"
+      }, 
+      "socialId": {
+        "type": "string",
+        "description": "Social ID"
+      },   
+      "image": {
+        "type": "string",
+        "description": "Image URL"
+      },      
+      "birthYear": {
+        "type": "string",
+        "description": "2019"
+      }, 
+      "birthDate": {
+        "type": "string",
+        "description": "10-20"
+      }, 
+      "birthPlace": {
+        "type": "string",
+        "description": "Taiwan"
+      },    
+      "education": {
+        "type": "string",
+        "description": "???"
+      },      
+      "phone1": {
+        "type": "string",
+        "description": "Telephone No 1"
+      },   
+      "phone2": {
+        "type": "string",
+        "description": "Telephone No 2"
+      },   
+      "address1": {
+        "type": "string",
+        "description": "Address 1"
+      },  
+      "address2": {
+        "type": "string",
+        "description": "Address 2"
+      },  
+      "material": {
+        "type": "string",
+        "description": "油畫,水彩,版畫,膠彩,粉彩,書法,水墨,雕塑混合卡片複製品畫冊"
+      },   
+      "price": {
+        "type": "number",
+        "description": "10000/?"
+      },  
+      "priceHistory": {
+        "type": ["string"],
+        "description": "10000"
+      }, 
+      "saleHistory": {
+        "type":  ["string"],
+        "description": "10000/?"
+      },   
+      "paymentHistory": {
+        "type":  ["string"],
+        "description": "10000/?"
+      },   
+      "note": {
+        "type": "string",
+        "description": "Extra Note"
+      },  
+      "state": {
+        "type": "number",
+        "description": "0:Delete 1:Ready",
+        "required": true
+      },      
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                                                                   
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "indexes":{
+      "name_index": {
+        "keys": {"name": 1 }
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

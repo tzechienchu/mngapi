@@ -1,0 +1,87 @@
+{
+    "name": "supplier",
+    "plural": "suppliers",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {   
+      "company": {
+        "type": "string",
+        "description": "Company Name",
+        "required": true
+      },  
+      "types": {
+        "type": "string",
+        "description": "Print,Flower....",
+        "required": true
+      },          
+      "contact": {
+        "type": "string",
+        "description": "Contact Name",
+        "required": true
+      },         
+      "phone1": {
+        "type": "string",
+        "description": "Telephone No 1"
+      },   
+      "phone2": {
+        "type": "string",
+        "description": "Telephone No 2"
+      },    
+      "address1": {
+        "type": "string",
+        "description": "Address 1"
+      },  
+      "address2": {
+        "type": "string",
+        "description": "Address 2"
+      }, 
+      "state": {
+        "type": "number",
+        "description": "0:Delete 1:Ready",
+        "required": true
+      },        
+      "note": {
+        "type": "string",
+        "description": "Extra Note"
+      },  
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                         
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

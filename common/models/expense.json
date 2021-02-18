@@ -1,0 +1,79 @@
+{
+    "name": "expense",
+    "plural": "expenses",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "type": {
+        "type": "string",
+        "description": "Expense Type"
+      },    
+      "supplierId": {
+        "type": "string",
+        "description": "Suppier Id"
+      }, 
+      "artistNo": {
+        "type": "string",
+        "description": "Artist Number"
+      }, 
+      "exhibitionNo": {
+        "type": "string",
+        "description": "Exhibition Number"
+      },  
+      "items": {
+        "type": ["string"],
+        "description": "item,price,description"
+      },                                                
+      "total": {
+        "type": "number",
+        "description": "Price 1"
+      },   
+      "deliveryDate": {
+        "type": "string",
+        "description": "2021-12-1"
+      },
+      "note": {
+        "type": "string",
+        "description": "Extra Note"
+      },       
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                        
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

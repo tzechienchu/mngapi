@@ -1,0 +1,44 @@
+{
+  "name": "mngapi",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node .",
+    "posttest": "npm run lint"
+  },
+  "dependencies": {
+    "bull": "^3.20.0",
+    "co": "^4.6.0",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "csvtojson": "^2.0.10",
+    "helmet": "^3.10.0",
+    "kue": "^0.11.6",
+    "loopback": "^3.22.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^6.2.0",
+    "loopback-component-storage": "^3.7.0",
+    "loopback-connector-kv-redis": "^4.0.0",
+    "loopback-connector-mongodb": "^5.5.0",
+    "loopback-connector-redis": "^3.0.0",
+    "moment": "^2.29.1",
+    "promisify": "0.0.3",
+    "ramda": "^0.27.1",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED",
+  "description": "Nan Management API"
+}

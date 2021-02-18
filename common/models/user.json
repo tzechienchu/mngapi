@@ -1,0 +1,55 @@
+{
+    "name": "user",
+    "plural": "users",
+    "base": "User",
+    "idInjection": false,
+    "options": {
+      "injectOptionsFromRemoteContext": false,
+      "validateUpsert": true
+    },  
+    "properties": {  
+        "type":{
+            "type": "string",
+            "description:":"admin,owner,posAdmin",
+            "required": true
+        },
+        "status": {
+          "type": "number",
+          "description": "1:active | 0:inactive",
+          "required": true
+        }          
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "posLogin",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW"
+          },
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}    
+}

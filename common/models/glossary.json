@@ -1,0 +1,64 @@
+{
+    "name": "glossary",
+    "plural": "glossaries",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "term": {
+        "type": "string",
+        "description": "Term",
+        "required": true
+      },   
+      "usage": {
+        "type": "string",
+        "description": "ArtistName,Style,Material,Color,...."
+      },  
+      "priority": {
+        "type": "string",
+        "description": "0->High 999->Low"
+      },      
+      "termTran": {
+        "type": ["string"],
+        "description": "Translation"
+      }, 
+      "createBy": {
+        "type": "string",
+        "description": "Create By User ?"
+      },                                                 
+      "createDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      },
+      "modifyDTUTC": {
+        "type": "number",
+        "description": "Unix Time"
+      }      
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, 
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+          },        
+          {
+            "property": "*",
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "admin",
+            "permission": "ALLOW"
+          }        
+    ],
+    "methods": {}
+  }
+  

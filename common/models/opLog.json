@@ -1,0 +1,45 @@
+{
+    "name": "opLog",
+    "plural": "opLogs",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+      "method": {
+        "type": "string"
+      },    
+      "params": {
+        "type": "object"
+      },
+      "createDTUTC": {
+        "type": "number",
+        "description": "UTC Time"
+      }
+    },
+    "validations": [],
+    "relations": {
+    },
+    "acls": [
+      {
+        "property": "*",
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW"
+      }, 
+      {
+        "property": "*",
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$owner",
+        "permission": "ALLOW"
+      },             
+      {
+        "property": "*",
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "admin",
+        "permission": "ALLOW"
+      }    
+    ],
+    "methods": {}
+  }
