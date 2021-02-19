@@ -5,12 +5,12 @@
     "idInjection": true,
     "properties": {
       "workNo": {
-        "type": "string",
+        "type": "number",
         "description": "Work Number",
         "required": true
       },
       "artistNo": {
-        "type": "string",
+        "type": "number",
         "description": "Artist Number",
         "required": true
       },                
@@ -41,7 +41,16 @@
       "lastWorkLogId": {
         "type": "string",
         "description": "Last Work Log Id"
-      },            
+      },  
+      "state": {
+        "type": "number",
+        "description": "0:Delete 1:Ready",
+        "required": true
+      }, 
+      "note": {
+        "type": "string",
+        "description": "Extra Note"
+      },           
       "createBy": {
         "type": "string",
         "description": "Create By User ?"

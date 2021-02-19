@@ -176,7 +176,7 @@ module.exports = function(artist) {
 		  description:'Update Artist'
 		}
 	)
-    artist.getAllArtists = NanUtil.getGetAllFN(artist)
+    artist.getAllArtists = NanUtil.getGetAllFN(artist,"artistNo DESC")
     artist.remoteMethod(
       'getAllArtists',
       {
@@ -297,7 +297,7 @@ module.exports = function(artist) {
 			var jsonObj = yield csv().fromFile(csvFilePath)
 			var artistData = jsonObj.map(function(od){
 				return {
-					artistNo : od.ARTISTNO,
+					artistNo : parseInt(od.ARTISTNO,10),
 					name:od.ARTNAME,
 					lastname:"",
 					gender:getGender(od.GENDER),

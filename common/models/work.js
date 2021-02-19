@@ -65,6 +65,7 @@ module.exports = function(work) {
                 title,
                 createBy,
                 styles,
+                state:1,
                 createDTUTC:NanUtil.getUTCTime()
             }
             var resp1 = yield work.createNewWork(newData)
@@ -97,7 +98,7 @@ module.exports = function(work) {
           {arg: 'size', type: 'string', description:'size'},
           {arg: 'title', type: 'string', description:'title'},
           {arg: 'styles', type: 'string', description:'styles'},
-		  {arg: 'createBy', type: 'string', description:'createBy Id'}
+		      {arg: 'createBy', type: 'string', description:'createBy Id'}
          ],
         returns: {arg: 'response', type: 'object'},
         description:'Add New Work'
@@ -133,5 +134,57 @@ module.exports = function(work) {
           returns: {arg: 'response', type: 'object'},
           description:'Update Work'
         }
-      )      
+    )
+    work.getAllWorks = NanUtil.getGetAllFN(work,"workNo DESC")
+    work.remoteMethod(
+        'getAllWorks',
+        {
+          http: {verb: 'post'} ,
+          accepts: [
+            {arg: 'limit', type: 'string', description:'limit'},
+            {arg: 'skip', type: 'string', description:'skip'},
+            {arg: 'state', type: 'string', description:'0|1'},
+           ],
+          returns: {arg: 'response', type: 'object'},
+          description:'Get All Work'
+        }
+    )
+    work.updateWorkState = NanUtil.getUpdateStateFN(work) 
+    work.remoteMethod(
+      'updateWorkState',
+      {
+        http: {verb: 'post'} ,
+        accepts: [
+          {arg: 'workId', type: 'string', required: true, description:'workId'},
+          {arg: 'state', type: 'number', required: true, description:'0|1'},
+         ],
+        returns: {arg: 'response', type: 'object'},
+        description:'Work Id'
+      }
+    )
+    work.searchWorkByTitle = function(title,cb) {
+      co(function*() {
+        const query = {
+          where:{
+            title:{regexp:title}
+          }
+        }
+        var resp = yield work.find(query)
+        cb(null,resp);
+      })
+      .catch(function(err){
+        cb(null,{err:err});
+      })
+    }  
+    work.remoteMethod(
+      'searchWorkByTitle',
+      {
+        http: {verb: 'post'} ,
+        accepts: [
+          {arg: 'title', type: 'string', required: true, description:'title'}
+        ],
+        returns: {arg: 'response', type: 'object'},
+        description:'Search Work By Title'
+      }
+    )	             
 }

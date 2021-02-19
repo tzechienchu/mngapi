@@ -5,7 +5,7 @@
     "idInjection": true,
     "properties": {
       "workNo": {
-        "type": "string",
+        "type": "number",
         "description": "Work Number"
       },          
       "artNo": {
@@ -25,7 +25,7 @@
         "description": "油畫水彩版畫膠彩粉彩書法水墨雕塑混合卡片複製品畫冊"
       },                      
       "artistNo": {
-        "type": "string",
+        "type": "number",
         "description": "Artist Number",
         "required": true
       }, 

@@ -5,7 +5,7 @@
     "idInjection": true,
     "properties": {
       "collectorNo": {
-        "type": "string",
+        "type": "number",
         "description": "Collector Number"
       },    
       "name": {

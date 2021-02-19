@@ -118,7 +118,7 @@ module.exports = function(collector) {
           description:'Update Supplier'
         }
     )
-    collector.getAllCollectors = NanUtil.getGetAllFN(collector)
+    collector.getAllCollectors = NanUtil.getGetAllFN(collector,"collectorNo DESC")
     collector.remoteMethod(
       'getAllCollectors',
       {
@@ -191,7 +191,7 @@ module.exports = function(collector) {
         var jsonObj = yield csv().fromFile(csvFilePath)
         var collectorData = jsonObj.map(function(od){
           return {
-            collectorNo:od.IDNO,
+            collectorNo: parseInt(od.IDNO,10),
             name:od.CUSTOMER,
             gender:getGender(od.SEX),
             phone1:od.TELHOME,

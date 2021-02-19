@@ -68,6 +68,7 @@ module.exports = function(workLog) {
             artistNo,artistName,
             state,ownerType,ownerName,
             location,price,inDate,undefined,createBy)
+          //LastWorkLogId
           cb(null,{ resp1, resp2 })
         })
         .catch(function(err){
@@ -99,6 +100,20 @@ module.exports = function(workLog) {
           description:'Add New Work'
         }
     )
+    workLog.getAllWorkLogs = NanUtil.getGetAllFN(workLog)
+    workLog.remoteMethod(
+        'getAllWorkLogs',
+        {
+          http: {verb: 'post'} ,
+          accepts: [
+            {arg: 'limit', type: 'string', description:'limit'},
+            {arg: 'skip', type: 'string', description:'skip'},
+            {arg: 'state', type: 'string', description:'0|1'},
+           ],
+          returns: {arg: 'response', type: 'object'},
+          description:'Get All WorkLog'
+        }
+    )    
     //2021-02-17
     workLog.getWorkByNo = function(workNo,cb) {
       co(function*() {
@@ -121,7 +136,7 @@ module.exports = function(workLog) {
           return {
             workNo: ix,
             artNo:od.ARTNO,
-            artistNo: od.ARTISTNO,
+            artistNo: parseInt(od.ARTISTNO,10),
             createYear: od.YEAR,
             material: APIConst.IMPORT.MATERIAL[parseInt(od.MATERIAL,10)],
             size: od.SIZE,
@@ -171,9 +186,9 @@ module.exports = function(workLog) {
               d.state,d.ownerType,d.ownerName,d.location,d.price,d.inDate,d.createBy)
             s+= 1
             resp.push(r)
-            console.log(d)
-            console.log(r)
-            yield NanUtil.delayPromise(100)
+            //console.log(d)
+            console.log(s+"/"+runLeng)
+            yield NanUtil.delayPromise(10)
           }        
           cb(null,resp) 
         } else {
@@ -196,5 +211,5 @@ module.exports = function(workLog) {
         returns: {arg: 'response', type: 'object'},
         description:'Import ArtIn'
       }
-    )     
+    )         
 }

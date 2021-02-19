@@ -5,7 +5,7 @@
     "idInjection": true,
     "properties": {
       "artistNo": {
-        "type": "string",
+        "type": "number",
         "description": "Artist Number",
         "required": true
       },      

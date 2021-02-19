@@ -44,13 +44,14 @@ var NanUtil = (function() {
     }
   }
 
-  var getGetAllFN = function(table) {
+  var getGetAllFN = function(table,orderBy="") {
     return function(limit,skip,state=1,cb) {
       co(function*() {
         var query = {
           where:{
             state
           },
+          order:orderBy,
           limit:limit,
           skip:skip
         }
