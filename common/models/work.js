@@ -51,7 +51,7 @@ module.exports = function(work) {
             cb(null,{err:err});
         })
     })
-    work.newWork = function(workNo,artistNo,createYear,material,size,title,styles,createBy,cb) {
+    work.newWork = function(workNo,artistNo,artistName,createYear,material,size,title,styles,createBy,cb) {
       co(function*() {
 	      var exitWork = yield work.findWorkByNo(workNo)
 				
@@ -59,6 +59,7 @@ module.exports = function(work) {
             var newData = {
                 workNo,
                 artistNo,
+                artistName,
                 createYear,
                 material,
                 size,
@@ -91,8 +92,9 @@ module.exports = function(work) {
       {
         http: {verb: 'post'},
         accepts: [
-          {arg: 'workNo', type: 'string', required: true, description:'workNo'},
-          {arg: 'artistNo', type: 'string', required: true, description:'artistNo'},
+          {arg: 'workNo', type: 'number', required: true, description:'workNo'},
+          {arg: 'artistNo', type: 'number', required: true, description:'artistNo'},
+          {arg: 'artistName', type: 'string', required: true, description:'artistName'},
           {arg: 'createYear', type: 'string', description:'createYear'},
           {arg: 'material', type: 'string', description:'material'},
           {arg: 'size', type: 'string', description:'size'},
@@ -109,7 +111,7 @@ module.exports = function(work) {
           var now = NanUtil.getUTCTime()
           var workData = yield work.findById(workId)
           var resp = yield workData.updateAttributes({
-            workNo,artistNo,createYear,material,size,title,styles,
+            workNo,artistNo,artistName,createYear,material,size,title,styles,
             modifyDTUTC:now
           })
         })
@@ -123,8 +125,9 @@ module.exports = function(work) {
           http: {verb: 'post'},
           accepts: [
             {arg: 'workId', type: 'string', required: true, description:'workId'},
-            {arg: 'workNo', type: 'string', required: true, description:'workNo'},
-            {arg: 'artistNo', type: 'string', required: true, description:'artistNo'},
+            {arg: 'workNo', type: 'number', description:'workNo'},
+            {arg: 'artistNo', type: 'number', description:'artistNo'},
+            {arg: 'artistName', type: 'string', description:'artistName'},
             {arg: 'createYear', type: 'string', description:'createYear'},
             {arg: 'material', type: 'string', description:'material'},
             {arg: 'size', type: 'string', description:'size'},
@@ -186,5 +189,41 @@ module.exports = function(work) {
         returns: {arg: 'response', type: 'object'},
         description:'Search Work By Title'
       }
-    )	             
+    )	 
+    //2021-02-19
+    work.searchWorkByATMSS = function(artistName,title,material,style,size,cb) {
+      co(function*() {
+        var query = {
+          where:{
+            artistName:artistName,
+          }
+        }
+        if (title) query.where.title = {regexp:title}
+        if (material) query.where.material = material
+        var resp = yield work.find(query)
+        if (resp.length === 1) {
+          cb(null,resp)
+        } else {
+          cb(null,resp);
+        }
+      })
+      .catch(function(err){
+        cb(null,{err:err});
+      })
+    }  
+    work.remoteMethod(
+      'searchWorkByATMSS',
+      {
+        http: {verb: 'post'} ,
+        accepts: [
+          {arg: 'artistName', type: 'string', required: true, description:'artistName'},
+          {arg: 'title', type: 'string', description:'title'},
+          {arg: 'material', type: 'string', description:'material'},
+          {arg: 'style', type: 'string', description:'style'},
+          {arg: 'size', type: 'string', description:'size'},
+        ],
+        returns: {arg: 'response', type: 'object'},
+        description:'Search Work By Artist, Title, Material, Style'
+      }
+    )                
 }

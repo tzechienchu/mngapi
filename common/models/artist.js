@@ -60,7 +60,7 @@ module.exports = function(artist) {
 		{
 		  http: {verb: 'post'} ,
 		  accepts: [
-			{arg: 'artistNo', type: 'string', description:'artistNo'},
+			{arg: 'artistNo', type: 'number', description:'artistNo'},
 		   ],
 		  returns: {arg: 'response', type: 'object'},
 		  description:'Get Artist By No'
@@ -107,7 +107,7 @@ module.exports = function(artist) {
       {
         http: {verb: 'post'},
         accepts: [
-          {arg: 'artistNo', type: 'string', required: true, description:'artistNo'},
+          {arg: 'artistNo', type: 'number', required: true, description:'artistNo'},
 		  {arg: 'name', type: 'string', required: true, description:'name'},
 		  {arg: 'lastname', type: 'string', description:'lastname'},		  
           {arg: 'gender', type: 'string', description:'gender'},
@@ -158,7 +158,7 @@ module.exports = function(artist) {
 		  http: {verb: 'post'},
 		  accepts: [
 			{arg: 'artistId', type: 'string', required: true, description:'artistNo'},
-			{arg: 'artistNo', type: 'string', description:'artistNo'},
+			{arg: 'artistNo', type: 'number', description:'artistNo'},
 			{arg: 'name', type: 'string', description:'name'},
 			{arg: 'lastname', type: 'string', description:'lastname'},
 			{arg: 'gender', type: 'string', description:'gender'},

@@ -36,11 +36,11 @@
       },                              
       "state": {
         "type": "string",
-        "description": "Web | Stock | Lend | Sold"
+        "description": "web | stock | lend | sold"
       },   
       "ownerType": {
         "type": "string",
-        "description": "Artist | Nan | Collector"
+        "description": "artist | nan | collector"
       },      
       "ownerName": {
         "type": "string",

@@ -13,7 +13,12 @@
         "type": "number",
         "description": "Artist Number",
         "required": true
-      },                
+      },  
+      "artistName": {
+        "type": "string",
+        "description": "Artist Name",
+        "required": true
+      },                     
       "createYear": {
         "type": "string",
         "description": "2019"

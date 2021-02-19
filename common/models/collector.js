@@ -55,7 +55,7 @@ module.exports = function(collector) {
         {
           http: {verb: 'post'},
           accepts: [
-            {arg: 'collectorNo', type: 'string', required: true, description:'collectorNo'},
+            {arg: 'collectorNo', type: 'number', required: true, description:'collectorNo'},
             {arg: 'name', type: 'string', required: true, description:'name'},
             {arg: 'gender', type: 'string', description:'gender'},		  
             {arg: 'phone1', type: 'string', description:'phone1'},
@@ -103,7 +103,7 @@ module.exports = function(collector) {
           http: {verb: 'post'},
           accepts: [
             {arg: 'collectorId', type: 'string', required: true, description:'collectorId'},
-            {arg: 'collectorNo', type: 'string', description:'collectorNo'},
+            {arg: 'collectorNo', type: 'number', description:'collectorNo'},
             {arg: 'name', type: 'string', description:'name'},
             {arg: 'gender', type: 'string', description:'gender'},		  
             {arg: 'phone1', type: 'string', description:'phone1'},
